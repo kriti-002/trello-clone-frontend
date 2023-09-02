@@ -10,7 +10,7 @@ const Note = (props) => {
     const sure = window.confirm("Do you really want to delete this note?")
     if(sure){
       try {
-        const resp=await axios.delete(`http://localhost:8081/api/delete/${id}`)
+        const resp=await axios.delete(`/api/delete/${id}`)
         if(resp.status=== 200) window.location.reload()
       } catch (error) {
         console.log(error)

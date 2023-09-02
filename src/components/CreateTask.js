@@ -12,7 +12,7 @@ function CreateTask() {
         event.preventDefault();
         console.log('Submitted', title, body, category)
         try{
-          await axios.post("http://localhost:8081/api/create",{title, body,category});
+          await axios.post("/api/create",{title, body,category});
           console.log("New Note Created");
           setOpen(false)
           window.location.reload()

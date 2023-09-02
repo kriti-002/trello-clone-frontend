@@ -1,5 +1,3 @@
-// src/components/KanbanBoard.js
-
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
@@ -9,7 +7,7 @@ import { Grid, Paper, Typography } from '@mui/material';
 const Home = () => {
   const [tasks, setTasks] = useState({ todo: [], doing: [], done: [] })
   useEffect( () => {
-    axios.get('http://localhost:8081/api/all').then((response)=>{
+    axios.get('/api/all').then((response)=>{
       const toDoData= response.data.filter((item)=>(item.category=== "todo"))
   const doingData= response.data.filter((item)=>(item.category=== "doing"))
   const doneData= response.data.filter((item)=>(item.category=== "done"))
@@ -42,7 +40,7 @@ const Home = () => {
 
     setTasks(updatedTasks);
 
-    axios.post(`http://localhost:8081/api/update/${draggableId}`, { category: destination.droppableId })
+    axios.post(`/api/update/${draggableId}`, { category: destination.droppableId })
       .then((response) => {
         console.log('Task status updated in the backend', response.data);
       })

@@ -11,7 +11,7 @@ function EditTask(props) {
   const handleSubmit= async (event)=>{
       event.preventDefault();
         try{
-          await axios.post(`http://localhost:8081/api/update/${props.id}`,{title, body});
+          await axios.post(`/api/update/${props.id}`,{title, body});
           console.log("Note Updated");
           setOpen(false)
           window.location.reload()
