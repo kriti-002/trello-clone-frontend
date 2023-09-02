@@ -65,7 +65,7 @@ const Home = () => {
                   className="task-list"
                 >
                   {category==="todo" && tasks[category].length===0 && (<Typography variant='h6' align='center'>Yayy! No todos. Do your tasks without distraction.</Typography>)}
-                  {category==="doing" && tasks[category].length===0 && (<Typography variant='h6' align='center'>Nothing to do at the moment. Utilize your time!</Typography>)}
+                  {category==="doing" && tasks[category].length===0 && (<Typography variant='h6' align='center'>Nothing doing at the moment. Utilize your time!</Typography>)}
                   {category==="done" && tasks[category].length===0 && (<Typography variant='h6' align='center'>Keep Hustling till you complete your tasks!</Typography>)}
                   {tasks[category].map((task, index) => (
                     <Draggable key={task._id} draggableId={task._id} index={index}>

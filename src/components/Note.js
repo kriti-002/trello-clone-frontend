@@ -1,8 +1,9 @@
-import { Button, Card, CardContent, Grid, Typography } from '@mui/material'
+import { Button, Card, CardContent, Grid, IconButton, Typography } from '@mui/material'
 import React from 'react'
 import ReactMarkdown from 'react-markdown'
 import EditTask from './EditTask'
 import axios from 'axios'
+import DragIndicatorIcon from '@mui/icons-material/DragIndicator';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 
 const Note = (props) => {
@@ -21,9 +22,19 @@ const Note = (props) => {
     <>
       <Card elevation={3} xs={12} sx={{padding: 2}}>
       <CardContent>
-        <Typography variant="h5" component="div">
+        <Grid container>
+          
+          <Grid xs={11}>
+          <Typography variant="h5" component="div">
           {props.title}
         </Typography>
+          </Grid>
+          <Grid xs={1}>
+          <IconButton>
+          <DragIndicatorIcon />
+        </IconButton>
+          </Grid>
+        </Grid>
         <ReactMarkdown children={props.body} allowedElements={["p", "br", "strong", "em", "h1", "h2", "h3", "h4", "h5", "h6", "ul", "ol", "li"]} />
         <Grid container>
           <Grid item sm={6} xs={12}>
