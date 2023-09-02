@@ -19,17 +19,17 @@ const Note = (props) => {
   }
   return (
     <>
-      <Card elevation={3} xs={12}>
+      <Card elevation={3} xs={12} sx={{padding: 2}}>
       <CardContent>
         <Typography variant="h5" component="div">
           {props.title}
         </Typography>
         <ReactMarkdown children={props.body} allowedElements={["p", "br", "strong", "em", "h1", "h2", "h3", "h4", "h5", "h6", "ul", "ol", "li"]} />
-        <Grid container spacing={2}>
-          <Grid item xs={6}>
+        <Grid container>
+          <Grid item sm={6} xs={12}>
             <EditTask title={props.title} body={props.body} id={props.id} />
           </Grid>
-          <Grid item xs={6}> 
+          <Grid item sm={6} xs={12}> 
           <Button variant='contained' color='error' onClick={()=> handleDelete(props.id)} startIcon={<DeleteForeverIcon/>}>Delete Task</Button>
           </Grid>
         </Grid>
