@@ -51,12 +51,12 @@ const Home = () => {
 
   return (
     <DragDropContext onDragEnd={onDragEnd}>
-    <Grid container sx={{marginTop: '4%'}} maxWidth="xl">
+    <Grid container sx={{marginTop: '5%'}} maxWidth="xl">
       <Grid container className="kanban-board">
         {Object.keys(tasks).map((category) => (
           <Grid item sm={4} xs={12} key={category} className="column">
             <Paper style={category==="todo" ? { padding: 30 , backgroundColor: '#FFF979'} : (category==="doing" ? { padding: 30, backgroundColor: 'pink' } : { padding: 30 , backgroundColor: 'lightgreen'})}>
-            <Typography variant='h4' align='center'>{category==="todo"? "To-Do😥 " : (category==="doing" ? "Doing📝" : "Done✔️")}</Typography>
+            <Typography variant='h4' align='center' sx={{margin: 2}}>{category==="todo"? "To-Do😥 " : (category==="doing" ? "Doing📝" : "Done✔️")}</Typography>
             <Droppable droppableId={category}>
               {(provided) => (
                 <div
